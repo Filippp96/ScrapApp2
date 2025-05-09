@@ -1,10 +1,10 @@
 variable "IPF" {
-  type = string
+  type      = string
   sensitive = true
 }
 
 variable "IPP" {
-  type = string
+  type      = string
   sensitive = true
 }
 
@@ -15,16 +15,16 @@ variable "IPP" {
 variable "objectKVF" {
   type        = string
   description = "ObjectID Filip"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "objectKVP" {
   type        = string
   description = "ObjectID Piotrek"
-  sensitive = true
+  sensitive   = true
 }
 
 variable "vmUserAdmin" {
-  type = string
+  type      = string
   sensitive = true
 }
