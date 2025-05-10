@@ -101,11 +101,11 @@ resource "azurerm_key_vault_secret" "mongodb_endpoint" {
   key_vault_id = azurerm_key_vault.main.id
 }
 
-/*resource "azurerm_key_vault_secret" "vmUserAdmin" {
+resource "azurerm_key_vault_secret" "vmUserAdmin" {
   name         = "vmUserAdmin"
-  value        = terraform.tfvars.vmUserAdmin
+  value        = var.vmUserAdmin
   key_vault_id = azurerm_key_vault.main.id
-}*/
+}
 
 resource "azurerm_key_vault_secret" "ssh_privatekey" {
   name         = "ssh-private-key"
