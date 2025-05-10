@@ -114,7 +114,7 @@ resource "azurerm_key_vault_secret" "ssh_privatekey" {
   key_vault_id = azurerm_key_vault.main.id
 }
 
-resource "azurerm_key_vault_secret" "VM_public_IP" {
+resource "azurerm_key_vault_secret" "vm_public_IP" {
   name         = "vm-public-IP"
   value        = azurerm_public_ip.main.ip_address
   key_vault_id = azurerm_key_vault.main.id
