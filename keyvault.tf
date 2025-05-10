@@ -118,31 +118,3 @@ resource "azurerm_key_vault_secret" "VM_public_IP" {
   value        = azurerm_public_ip.main.ip_address
   key_vault_id = azurerm_key_vault.main.id
 }
-
-/*
-resource "azurerm_key_vault_secret" "IPF" {
-  name         = "IPF"
-  value        = terraform.tfvars.IPF
-  key_vault_id = azurerm_key_vault.main.id
-}
-
-resource "azurerm_key_vault_secret" "IPP" {
-  name         = "IPP"
-  value        = terraform.tfvars.IPP
-  key_vault_id = azurerm_key_vault.main.id
-}
-
-resource "azurerm_key_vault_secret" "objectKVF" {
-  name         = "objectKVF"
-  value        = terraform.tfvars.objectKVF
-  key_vault_id = azurerm_key_vault.main.id
-}
-
-resource "azurerm_key_vault_secret" "objectKVP" {
-  name         = "objectKVP"
-  value        = terraform.tfvars.objectKVP
-  key_vault_id = azurerm_key_vault.main.id
-}
-*/
-
-// zrobic zeby zmienne z tfvars byly dostepne dla github i gitlab
