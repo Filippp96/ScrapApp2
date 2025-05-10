@@ -107,14 +107,14 @@ resource "azurerm_linux_virtual_machine" "main" {
   resource_group_name             = azurerm_resource_group.main.name
   location                        = azurerm_resource_group.main.location
   size                            = "Standard_B1ms"
-  admin_username                  = azurerm_key_vault_secret.vmUserAdmin.value
+  admin_username                  = azurerm_key_vault_secret.vm_user_admin.value
   disable_password_authentication = true
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
 
   admin_ssh_key {
-    username   = azurerm_key_vault_secret.vmUserAdmin.value
+    username   = azurerm_key_vault_secret.vm_user_admin.value
     public_key = tls_private_key.ssh_key.public_key_openssh
   }
 

@@ -23,7 +23,7 @@ resource "azurerm_key_vault" "main" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = var.objectKVTF //data.azurerm_client_config.current.object_id
+    object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
       "Get", "List", "Update", "Create", "Import", "Delete", "Recover", "Backup", "Restore", "Decrypt", "Encrypt", "UnwrapKey", "WrapKey", "Verify", "Sign", "Purge", "Release", "Rotate", "GetRotationPolicy", "SetRotationPolicy"
@@ -101,8 +101,8 @@ resource "azurerm_key_vault_secret" "mongodb_endpoint" {
   key_vault_id = azurerm_key_vault.main.id
 }
 
-resource "azurerm_key_vault_secret" "vmUserAdmin" {
-  name         = "vmUserAdmin"
+resource "azurerm_key_vault_secret" "vm_user_admin" {
+  name         = "vm-user-admin"
   value        = var.vmUserAdmin
   key_vault_id = azurerm_key_vault.main.id
 }
