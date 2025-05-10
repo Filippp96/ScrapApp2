@@ -65,6 +65,7 @@ resource "azurerm_key_vault" "main" {
   }
 }
 
+
 resource "azurerm_key_vault_secret" "postgresql_login" {
   name         = "postgresql-login"
   value        = "adminpostgres"
