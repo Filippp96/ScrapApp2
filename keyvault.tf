@@ -119,3 +119,4 @@ resource "azurerm_key_vault_secret" "vm_public_IP" {
   value        = azurerm_public_ip.main.ip_address
   key_vault_id = azurerm_key_vault.main.id
 }
+
