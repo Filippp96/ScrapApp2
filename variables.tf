@@ -12,6 +12,12 @@ variable "IPP" {
  type = string
 }*/
 
+variable "objectKVTF" {
+  type        = string
+  description = "ObjectID TF"
+  sensitive   = true
+}
+
 variable "objectKVF" {
   type        = string
   description = "ObjectID Filip"

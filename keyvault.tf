@@ -23,7 +23,7 @@ resource "azurerm_key_vault" "main" {
 
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+    object_id = var.objectKVTF //data.azurerm_client_config.current.object_id
 
     key_permissions = [
       "Get", "List", "Update", "Create", "Import", "Delete", "Recover", "Backup", "Restore", "Decrypt", "Encrypt", "UnwrapKey", "WrapKey", "Verify", "Sign", "Purge", "Release", "Rotate", "GetRotationPolicy", "SetRotationPolicy"
@@ -101,9 +101,9 @@ resource "azurerm_key_vault_secret" "mongodb_endpoint" {
   key_vault_id = azurerm_key_vault.main.id
 }
 
-resource "azurerm_key_vault_secret" "vm_useradmin" {
-  name         = "vm-useradmin"
-  value        = var.vmUserAdmin
+resource "azurerm_key_vault_secret" "vmUserAdmin" {
+  name         = "vmUserAdmin"
+  value        = terraform.tfvars.vmUserAdmin
   key_vault_id = azurerm_key_vault.main.id
 }
 
@@ -118,3 +118,29 @@ resource "azurerm_key_vault_secret" "VM_public_IP" {
   value        = azurerm_public_ip.main.ip_address
   key_vault_id = azurerm_key_vault.main.id
 }
+
+resource "azurerm_key_vault_secret" "IPF" {
+  name         = "IPF"
+  value        = terraform.tfvars.IPF
+  key_vault_id = azurerm_key_vault.main.id
+}
+
+resource "azurerm_key_vault_secret" "IPP" {
+  name         = "IPP"
+  value        = terraform.tfvars.IPP
+  key_vault_id = azurerm_key_vault.main.id
+}
+
+resource "azurerm_key_vault_secret" "objectKVF" {
+  name         = "objectKVF"
+  value        = terraform.tfvars.objectKVF
+  key_vault_id = azurerm_key_vault.main.id
+}
+
+resource "azurerm_key_vault_secret" "objectKVP" {
+  name         = "objectKVP"
+  value        = terraform.tfvars.objectKVP
+  key_vault_id = azurerm_key_vault.main.id
+}
+
+// zrobic zeby zmienne z tfvars byly dostepne dla github i gitlab
